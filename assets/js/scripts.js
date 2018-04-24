@@ -12,4 +12,9 @@ var AdminLTE = (function() {
     }
   }
 })(AdminLTE||{});
+$(document).on('click', '.sidebar-toggle', function () {
+  if ($('body').hasClass("sidebar-collapse") && $('body').hasClass("sidebar-open")) {
+     $('body').removeClass("sidebar-collapse");
+  }
+});
 
