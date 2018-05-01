@@ -12,9 +12,3 @@ var AdminLTE = (function() {
     }
   }
 })(AdminLTE||{});
-$(function() 
-{ $(document).on('click','.sidebar-menu li a[ui-sref]',function(e) 
-{ 
-  debugger;
-  $($.AdminLTE.options.sidebarToggleSelector).click(); }); });
-

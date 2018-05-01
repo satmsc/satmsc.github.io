@@ -1,4 +1,63 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Angular AdminLTE</title><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link href="styles.db0cfb2ac4da3a597fa2.bundle.css" rel="stylesheet"/></head><body hold-transition><app-root>Loading ...</app-root><script type="text/javascript" src="inline.a381f25c4be4981f7044.bundle.js"></script><script type="text/javascript" src="polyfills.46be62302195101643c9.bundle.js"></script><script type="text/javascript" src="scripts.c0b76ef8092e4778a966.bundle.js"></script><script type="text/javascript" src="main.0730b42f121450de9d05.bundle.js"></script></body><script type="text/javascript" charset="utf-8" async defer="defer">$("li.active").click(function() { 
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Angular AdminLTE</title><meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport"><base href="/"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link href="styles.17d4348ee5784561083c.bundle.css" rel="stylesheet"/></head><body hold-transition><app-root>Loading ...</app-root><script type="text/javascript" src="inline.6aec548f06bf0cf2cb9d.bundle.js"></script><script type="text/javascript" src="polyfills.46be62302195101643c9.bundle.js"></script><script type="text/javascript" src="scripts.2379d9d64c0933417d5f.bundle.js"></script><script type="text/javascript" src="main.b84c9421a810ee7aef30.bundle.js"></script></body><link rel="stylesheet" href="../node_modules/jqwidgets/styles/jqx.base.css" type="text/css"/><script type="text/javascript" charset="utf-8" async defer="defer">$(document).ready(function () {
+               
+               var fields = [
+                        { name: "id", type: "string" },
+                        { name: "status", map: "state", type: "string" },
+                        { name: "text", map: "label", type: "string" },
+                        { name: "tags", type: "string" },
+                        { name: "color", map: "hex", type: "string" },
+                        { name: "resourceId", type: "number" }
+               ];
+               var source =
+                {
+                    localData: [
+                             { id: "1161", state: "new", label: "Combine Orders", tags: "orders, combine", hex: "#5dc3f0", resourceId: 3 },
+                             { id: "1645", state: "work", label: "Change Billing Address", tags: "billing", hex: "#f19b60", resourceId: 1 },
+                             { id: "9213", state: "new", label: "One item added to the cart", tags: "cart", hex: "#5dc3f0", resourceId: 3 },
+                             { id: "6546", state: "done", label: "Edit Item Price", tags: "price, edit", hex: "#5dc3f0", resourceId: 4 },
+                             { id: "9034", state: "new", label: "Login 404 issue", tags: "issue, login", hex: "#6bbd49" }
+                    ],
+                    dataType: "array",
+                    dataFields: fields
+                };
+               var dataAdapter = new $.jqx.dataAdapter(source);
+               var resourcesAdapterFunc = function () {
+                   var resourcesSource =
+                   {
+                       localData: [
+                             { id: 0, name: "No name", image: "../../jqwidgets/styles/images/common.png", common: true },
+                             { id: 1, name: "Andrew Fuller", image: "assets/img/andrew.png" },
+                             { id: 2, name: "Janet Leverling", image: "assets/img/janet.png" },
+                             { id: 3, name: "Steven Buchanan", image: "assets/img/steven.png" },
+                             { id: 4, name: "Nancy Davolio", image: "assets/img/nancy.png" },
+                             { id: 5, name: "Michael Buchanan", image: "assets/img/Michael.png" },
+                             { id: 6, name: "Margaret Buchanan", image: "assets/img/margaret.png" },
+                             { id: 7, name: "Robert Buchanan", image: "assets/img/robert.png" },
+                             { id: 8, name: "Laura Buchanan", image: "assets/img/Laura.png" },
+                             { id: 9, name: "Laura Buchanan", image: "assets/img/Anne.png" }
+                       ],
+                       dataType: "array",
+                       dataFields: [
+                            { name: "id", type: "number" },
+                            { name: "name", type: "string" },
+                            { name: "image", type: "string" },
+                            { name: "common", type: "boolean" }
+                       ]
+                   };
+                   var resourcesDataAdapter = new $.jqx.dataAdapter(resourcesSource);
+                   return resourcesDataAdapter;
+               }
+               $('#kanban').jqxKanban({
+                   resources: resourcesAdapterFunc(),
+                   source: dataAdapter,
+                   columns: [
+                       { text: "Backlog", dataField: "new" },
+                       { text: "In Progress", dataField: "work" },
+                       { text: "Done", dataField: "done" }
+                   ]
+               }); 
+           });
+$("li.active").click(function() { 
 
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     $($.AdminLTE.options.sidebarToggleSelector).click(); 
